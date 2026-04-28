@@ -1,0 +1,80 @@
+/* 2026-02-10: NUMBERFIVE Ramadan microsite – CSS reset for consistent baseline across browsers */
+
+/* 2026-02-10: Use border-box so width/height include padding and border */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2026-02-10: Remove default margin and padding; set core typography defaults */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 2026-02-10: Slightly smaller default font, allow scaling; improve text rendering */
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* 2026-02-10: Full viewport height for layout; consistent line-height */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2026-02-10: Media and replaced content: block, no overflow, no max-width issues */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 2026-02-10: Inherit font for form controls; avoid iOS zoom on focus */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  font-size: 1rem;
+}
+
+/* 2026-02-10: Remove default list styling */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 2026-02-10: Remove link underline; inherit color (override in components as needed) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 2026-02-10: Remove default button styling for custom-styled buttons */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 2026-02-10: Prevent overflow with long unbroken strings (e.g. URLs) */
+p,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 2026-02-10: Remove default table spacing; optional: border-collapse in layout CSS */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

@@ -1,0 +1,86 @@
+:root {
+    --background-color: #f2ece6;
+    --text-color: #000000;
+    --accent-color: #804a40;
+    --secondary-color: #c3ced9;
+    --body-padding: 2rem;
+    --standard-padding: 2rem;
+    --gap: 2rem;
+}
+
+body {
+    background-color: var(--background-color);
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--body-padding);
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+header, div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    margin-bottom: var(--standard-padding);
+}
+
+.numberfive-logo {
+    width: 300px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", serif;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 100;
+    font-style: normal;
+    margin: 2rem 0;
+}
+
+h1.numberfive-header-title {
+    font-family: "Raleway", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 800;
+    margin: 20px;
+    letter-spacing: 6px;
+}
+
+h2 {
+    margin: var(--standard-padding) auto var(--standard-padding);
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: -1px;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+#numberfive-menu-selections {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.description p {
+    text-decoration: underline;
+    text-decoration-color: var(--secondary-color);
+}
+
+.details-list {
+    width: 100%;
+    display: flex;
+    flex-direction: revert;
+    gap: var(--gap);
+    margin: var(--standard-padding) 0;
+    border-top: 1px solid var(--secondary-color);
+    border-bottom: 1px solid var(--secondary-color);
+}
