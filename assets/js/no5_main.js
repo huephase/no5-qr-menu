@@ -1,37 +1,43 @@
-// Fetch and parse CSV data
-async function loadMenuData() {
+window.NO5_CURRENCY = window.NO5_CURRENCY || 'AED';
+const NO5_CURRENCY = window.NO5_CURRENCY;
+
+function renderPrice(price) {
+  if (!price) {
+    return '';
+  }
+
+  return `${price} <span class="currency">${NO5_CURRENCY}</span>`;
+}
+
+async function loadCSVData(path, label) {
   try {
-    const response = await fetch('/assets/data/no5_bakery.csv');
+    const response = await fetch(path);
     const csvText = await response.text();
     return parseCSV(csvText);
   } catch (error) {
-    console.error('Error loading menu data:', error);
+    console.error(`Error loading ${label} data:`, error);
     return [];
   }
+}
+
+// Fetch and parse CSV data
+async function loadMenuData() {
+  return loadCSVData('/assets/data/no5_bakery.csv', 'menu');
 }
 
 // Fetch and parse Coffee CSV data
 async function loadCoffeeData() {
-  try {
-    const response = await fetch('/assets/data/no5_coffee.csv');
-    const csvText = await response.text();
-    return parseCSV(csvText);
-  } catch (error) {
-    console.error('Error loading coffee data:', error);
-    return [];
-  }
+  return loadCSVData('/assets/data/no5_coffee.csv', 'coffee');
 }
 
 // Fetch and parse Matcha CSV data
 async function loadMatchaData() {
-  try {
-    const response = await fetch('/assets/data/no5_matcha.csv');
-    const csvText = await response.text();
-    return parseCSV(csvText);
-  } catch (error) {
-    console.error('Error loading matcha data:', error);
-    return [];
-  }
+  return loadCSVData('/assets/data/no5_matcha.csv', 'matcha');
+}
+
+// Fetch and parse Bowls CSV data
+async function loadBowlsData() {
+  return loadCSVData('/assets/data/no5_bowls.csv', 'bowls');
 }
 
 // Parse CSV text into array of objects
@@ -120,6 +126,7 @@ function createMenuItemElement(item) {
     <div class="details">
       <div class="title">
         <h3>${item.title}</h3>
+        <p class="menu-item-price">${renderPrice(item.price)}</p>
       </div>
       <div class="description">
         <p>${item.description}</p>
@@ -150,7 +157,7 @@ function createCoffeeMenuItemElement(item) {
       <h3>${item.title}</h3>
       <p>${item.description}</p>
     </div>
-    <div class="menu_item price"><p>${item.price} <span class="currency">${item.currency}</span></p></div>
+    <div class="menu_item price"><p>${renderPrice(item.price)}</p></div>
   `;
 
   return div;
@@ -166,7 +173,7 @@ function createMatchaMenuItemElement(item) {
       <h3>${item.title}</h3>
       <p>${item.description}</p>
     </div>
-    <div class="menu_item price"><p>${item.price} <span class="currency">${item.currency}</span></p></div>
+    <div class="menu_item price"><p>${renderPrice(item.price)}</p></div>
   `;
 
   return div;
@@ -184,6 +191,21 @@ async function initializeBakeryMenu() {
   menuData.forEach(item => {
     const menuItemElement = createMenuItemElement(item);
     menuContainer.appendChild(menuItemElement);
+  });
+}
+
+// Initialize bowls menu
+async function initializeBowlsMenu() {
+  const bowlsData = await loadBowlsData();
+  const bowlsContainer = document.getElementById('no5-bowls-menu-items');
+
+  // Clear existing items
+  bowlsContainer.innerHTML = '';
+
+  // Add bowl items
+  bowlsData.forEach(item => {
+    const bowlsItemElement = createMenuItemElement(item);
+    bowlsContainer.appendChild(bowlsItemElement);
   });
 }
 
@@ -217,9 +239,19 @@ async function initializeMatchaMenu() {
   });
 }
 
+// Set copyright year dynamically
+function setCurrentYear() {
+  const yearElement = document.getElementById('no5-year');
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+}
+
 // Run on page load
 document.addEventListener('DOMContentLoaded', () => {
+  setCurrentYear();
   initializeCoffeeMenu();
   initializeMatchaMenu();
   initializeBakeryMenu();
+  initializeBowlsMenu();
 });

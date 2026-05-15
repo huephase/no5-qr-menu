@@ -16,7 +16,7 @@ body {
     padding: var(--body-padding);
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    font-weight: 400;
     font-style: normal;
 }
 
@@ -27,7 +27,7 @@ header, div {
 }
 
 header {
-    margin-bottom: var(--standard-padding);
+    margin: var(--standard-padding) 0;
 }
 
 .numberfive-logo {
@@ -41,7 +41,7 @@ h1 {
     font-size: 2rem;
     font-weight: 100;
     font-style: normal;
-    margin: 2rem 0;
+    margin: var(--standard-padding) 0;
 }
 
 h1.numberfive-header-title {
@@ -54,6 +54,7 @@ h1.numberfive-header-title {
 
 h1.section-title {
     text-align: center;
+    font-weight: 300;
 }
 
 h2 {
@@ -71,6 +72,8 @@ h3 {
 
 p {
     line-height: 1;
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 img {
@@ -83,9 +86,11 @@ img {
     margin: 0 auto;
 }
 
-.description p {
-    text-decoration: underline;
-    text-decoration-color: var(--secondary-color);
+hr {
+    border: none;
+    border-bottom: 1px solid #00000036;
+    width: 100%;
+    margin: var(--standard-padding) 0;
 }
 
 .details-list {
@@ -97,13 +102,21 @@ img {
     border-top: 1px solid var(--secondary-color);
     border-bottom: 1px solid var(--secondary-color);
 }
+.menu-item.coffee, .menu-item.matcha {
+    margin-bottom: var(--standard-padding);
+}
 
 .menu-item.coffee {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
-    margin-bottom: 2rem;
+}
+.menu-item.matcha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
 }
 .menu-item.coffee h2 {
     text-align: left;
@@ -111,7 +124,7 @@ img {
     display: flex;
     flex-direction: row;
 }
-.coffee-item {
+.coffee-item, .matcha-item {
     flex: 0 0 85%;
     align-items: flex-start;
     padding-right: 40px;
@@ -119,6 +132,18 @@ img {
 .menu_item.price {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: flex-end;
+    font-weight: 800;
+}
+.menu_item.price p{
+    font-weight: 600;
+}
+
+.title {
+    margin: var(--standard-padding) 0;
+}
+
+footer {
+    margin: calc(var(--standard-padding)*5) 0 var(--standard-padding) 0;
 }
