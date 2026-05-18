@@ -137,7 +137,7 @@ hr {
     justify-content: flex-end;
     font-weight: 800;
 }
-.menu_item.price p{
+.menu_item.price p, p.menu-item-price {
     font-weight: 600;
 }
 
