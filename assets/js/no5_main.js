@@ -91,25 +91,24 @@ function parseCSVLine(line) {
 function getImageFilename(title) {
   // Map of special cases
   const imageMap = {
-    'Almond Croissant': 'Croissant_Almond.jpg',
-    'Croissant': 'Croissant.jpg',
-    'Brownie': 'Brownie.jpg',
-    'Cardamom Bun': 'Cardamon_Bun.jpg',
-    'Cinnamon roll': 'Cinnamon_roll.jpg',
-    'cinnamon roll': 'Cinnamon_roll.jpg',
-    'Chocolate Babka': 'Chocolate_Babka.jpg',
-    'Crème Caramel': 'Creme_Caramel.jpg',
-    'Açai Bowl': 'Acai_Bowl.jpg',
-    'Coconut Cake': 'Coconut_Cake.jpg',
-    'Cheescake with Berry Sauce': 'Cheescake_with_Berry_Sauce.jpg',
-    'Pain Au Chocolat': 'Pain_Au_Chocolat.jpg',
-    'Peanut Butter Tarte': 'Peanut_Butter_Tarte.jpg',
-    'Sea Salt Nutella Cookie': 'Sea_Salt_Nutella_Cookie.jpg',
-    'Rangeena': 'Rangeena.jpg',
-    'White Chocolate Saffron': 'White_Chocolate_Saffron.jpg',
-    'Tiramisu': 'Tiramisu.jpg',
-    'Vanilla Bun': 'Vanilla_Bun.jpg',
-    'Greek Yogurt Bowl': 'Greek_Yogurt_Bowl.jpg'
+    'Almond Croissant': 'croissant_almond.jpg',
+    'Croissant': 'croissant.jpg',
+    'Brownie': 'brownie.jpg',
+    'Cardamom Bun': 'cardamon_bun.jpg',
+    'Cinnamon roll': 'cinnamon_roll.jpg',
+    'Chocolate Babka': 'chocolate_babka.jpg',
+    'Crème Caramel': 'creme_caramel.jpg',
+    'Açai Bowl': 'acai_bowl.jpg',
+    'Coconut Cake': 'coconut_cake.jpg',
+    'Cheescake with Berry Sauce': 'cheescake_with_berry_sauce.jpg',
+    'Pain Au Chocolat': 'pain_au_chocolat.jpg',
+    'Peanut Butter Tarte': 'peanut_butter_tarte.jpg',
+    'Sea Salt Nutella Cookie': 'sea_salt_nutella_cookie.jpg',
+    'Rangeena': 'rangeena.jpg',
+    'White Chocolate Saffron': 'white_chocolate_saffron.jpg',
+    'Tiramisu': 'tiramisu.jpg',
+    'Vanilla Bun': 'vanilla_bun.jpg',
+    'Greek Yogurt Bowl': 'greek_yogurt_bowl.jpg'
   };
 
   if (imageMap[title]) {
