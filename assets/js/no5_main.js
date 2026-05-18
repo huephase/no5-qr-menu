@@ -111,7 +111,16 @@ function getImageFilename(title) {
     'Greek Yogurt Bowl': 'Greek_Yogurt_Bowl.jpg'
   };
 
-  return imageMap[title] || title.replace(/\s+/g, '_') + '.jpg';
+  if (imageMap[title]) {
+    return imageMap[title];
+  }
+
+  return title
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '_') + '.jpg';
 }
 
 // Create bakery menu item element from data row
