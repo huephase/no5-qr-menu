@@ -1,0 +1,20 @@
+services:
+  numberfive-menu:
+    build:
+      context: .
+    image: numberfive-menu:latest
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    expose:
+      - "80"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.numberfive-menu.rule=Host(`numberfive.ae`) || Host(`www.numberfive.ae`)"
+      - "traefik.http.routers.numberfive-menu.entrypoints=websecure"
+      - "traefik.http.routers.numberfive-menu.tls.certresolver=letsencrypt"
+      - "traefik.http.services.numberfive-menu.loadbalancer.server.port=80"
+
+networks:
+  traefik-public:
+    external: true
