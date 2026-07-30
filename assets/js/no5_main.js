@@ -118,7 +118,19 @@ function getImageFilename(title) {
     'White Chocolate Saffron': 'white_chocolate_saffron.jpg',
     'Tiramisu': 'tiramisu.jpg',
     'Vanilla Bun': 'vanilla_bun.jpg',
-    'Yogurt Bowl': 'yogurt_bowl.jpg'
+    'Yogurt Bowl': 'yogurt_bowl.jpg',
+    'Avocado Toast': 'avocado_toast.jpg',
+    'Crumpet Benedict': 'crumpet_benedict.jpg',
+    'Popns Muffin': 'popns_muffin.jpg',
+    'Chilli Scramble': 'chilli_scramble.jpg',
+    'Turkish Eggs': 'turkish_eggs.jpg',
+    'Popns Breakfast Plate': 'popns_breakfast_plate.jpg',
+    'Berry Smoothie': 'berry_smoothie.jpg',
+    'Açai Smoothie': 'acai_smoothie.jpg',
+    'Mango Passion': 'mango_passion.jpg',
+    'Orange Juice': 'orange_juice.jpg',
+    'Watermelon Juice': 'watermelon_juice.jpg',
+    'Pineapple Juice': 'pineapple_juice.jpg'
   };
 
   if (imageMap[title]) {
