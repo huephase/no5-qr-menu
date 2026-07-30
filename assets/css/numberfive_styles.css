@@ -131,7 +131,7 @@ hr {
     display: flex;
     flex-direction: row;
 }
-.coffee-item, .tea-item {
+.coffee-item, .tea-item, .cold-drinks-item {
     flex: 0 0 85%;
     align-items: flex-start;
     padding-right: 40px;
