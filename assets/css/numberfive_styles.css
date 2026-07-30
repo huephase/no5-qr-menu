@@ -103,7 +103,7 @@ hr {
     border-top: 1px solid var(--secondary-color);
     border-bottom: 1px solid var(--secondary-color);
 }
-.menu-item.coffee, .menu-item.matcha {
+.menu-item.coffee, .menu-item.tea {
     margin-bottom: var(--standard-padding);
 }
 
@@ -113,7 +113,7 @@ hr {
     align-items: center;
     width: 100%;
 }
-.menu-item.matcha {
+.menu-item.tea {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -125,7 +125,7 @@ hr {
     display: flex;
     flex-direction: row;
 }
-.coffee-item, .matcha-item {
+.coffee-item, .tea-item {
     flex: 0 0 85%;
     align-items: flex-start;
     padding-right: 40px;
@@ -155,7 +155,7 @@ footer {
     bottom: 1rem;
     z-index: 20;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 0.35rem;
     width: min(calc(100% - 2rem), 500px);
     background: rgba(242, 236, 230, 0.94);

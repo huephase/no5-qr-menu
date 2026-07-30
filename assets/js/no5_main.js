@@ -25,14 +25,24 @@ async function loadMenuData() {
   return loadCSVData('/assets/data/no5_bakery.csv', 'menu');
 }
 
+// Fetch and parse Breakfast CSV data
+async function loadBreakfastData() {
+  return loadCSVData('/assets/data/no5_breakfast.csv', 'breakfast');
+}
+
 // Fetch and parse Coffee CSV data
 async function loadCoffeeData() {
   return loadCSVData('/assets/data/no5_coffee.csv', 'coffee');
 }
 
-// Fetch and parse Matcha CSV data
-async function loadMatchaData() {
-  return loadCSVData('/assets/data/no5_matcha.csv', 'matcha');
+// Fetch and parse Tea CSV data
+async function loadTeaData() {
+  return loadCSVData('/assets/data/no5_tea.csv', 'tea');
+}
+
+// Fetch and parse Cold Drinks CSV data
+async function loadColdDrinksData() {
+  return loadCSVData('/assets/data/no5_cold_drinks.csv', 'cold drinks');
 }
 
 // Fetch and parse Bowls CSV data
@@ -94,7 +104,7 @@ function getImageFilename(title) {
     'Almond Croissant': 'croissant_almond.jpg',
     'Croissant': 'croissant.jpg',
     'Brownie': 'brownie.jpg',
-    'Cardamom Bun': 'cardamon_bun.jpg',
+    'Cardamom Bun': 'cardamom_bun.jpg',
     'Cinnamon roll': 'cinnamon_roll.jpg',
     'Chocolate Babka': 'chocolate_babka.jpg',
     'Crème Caramel': 'creme_caramel.jpg',
@@ -172,13 +182,29 @@ function createCoffeeMenuItemElement(item) {
   return div;
 }
 
-// Create matcha menu item element from data row
-function createMatchaMenuItemElement(item) {
+// Create tea menu item element from data row
+function createTeaMenuItemElement(item) {
   const div = document.createElement('div');
-  div.className = 'menu-item matcha';
+  div.className = 'menu-item tea';
 
   div.innerHTML = `
-    <div class="matcha-item">
+    <div class="tea-item">
+      <h3>${item.title}</h3>
+      <p>${item.description}</p>
+    </div>
+    <div class="menu_item price"><p>${renderPrice(item.price)}</p></div>
+  `;
+
+  return div;
+}
+
+// Create cold drinks menu item element from data row
+function createColdDrinksMenuItemElement(item) {
+  const div = document.createElement('div');
+  div.className = 'menu-item cold-drinks';
+
+  div.innerHTML = `
+    <div class="cold-drinks-item">
       <h3>${item.title}</h3>
       <p>${item.description}</p>
     </div>
@@ -200,6 +226,21 @@ async function initializeBakeryMenu() {
   menuData.forEach(item => {
     const menuItemElement = createMenuItemElement(item);
     menuContainer.appendChild(menuItemElement);
+  });
+}
+
+// Initialize breakfast menu
+async function initializeBreakfastMenu() {
+  const breakfastData = await loadBreakfastData();
+  const breakfastContainer = document.getElementById('no5-breakfast-menu-items');
+
+  // Clear existing items
+  breakfastContainer.innerHTML = '';
+
+  // Add breakfast items
+  breakfastData.forEach(item => {
+    const breakfastItemElement = createMenuItemElement(item);
+    breakfastContainer.appendChild(breakfastItemElement);
   });
 }
 
@@ -233,18 +274,33 @@ async function initializeCoffeeMenu() {
   });
 }
 
-// Initialize matcha menu
-async function initializeMatchaMenu() {
-  const matchaData = await loadMatchaData();
-  const matchaContainer = document.getElementById('no5-matcha-menu-items');
+// Initialize tea menu
+async function initializeTeaMenu() {
+  const teaData = await loadTeaData();
+  const teaContainer = document.getElementById('no5-tea-menu-items');
 
   // Clear existing items
-  matchaContainer.innerHTML = '';
+  teaContainer.innerHTML = '';
 
-  // Add matcha items
-  matchaData.forEach(item => {
-    const matchaItemElement = createMatchaMenuItemElement(item);
-    matchaContainer.appendChild(matchaItemElement);
+  // Add tea items
+  teaData.forEach(item => {
+    const teaItemElement = createTeaMenuItemElement(item);
+    teaContainer.appendChild(teaItemElement);
+  });
+}
+
+// Initialize cold drinks menu
+async function initializeColdDrinksMenu() {
+  const coldDrinksData = await loadColdDrinksData();
+  const coldDrinksContainer = document.getElementById('no5-cold-drinks-items');
+
+  // Clear existing items
+  coldDrinksContainer.innerHTML = '';
+
+  // Add cold drinks items
+  coldDrinksData.forEach(item => {
+    const coldDrinksItemElement = createColdDrinksMenuItemElement(item);
+    coldDrinksContainer.appendChild(coldDrinksItemElement);
   });
 }
 
@@ -317,7 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setCurrentYear();
   initializeStickyMenu();
   initializeCoffeeMenu();
-  initializeMatchaMenu();
+  initializeTeaMenu();
+  initializeColdDrinksMenu();
+  initializeBreakfastMenu();
   initializeBakeryMenu();
   initializeBowlsMenu();
 });
