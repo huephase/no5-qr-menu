@@ -103,7 +103,7 @@ hr {
     border-top: 1px solid var(--secondary-color);
     border-bottom: 1px solid var(--secondary-color);
 }
-.menu-item.coffee, .menu-item.tea {
+.menu-item.coffee, .menu-item.tea, .menu-item.cold-drinks {
     margin-bottom: var(--standard-padding);
 }
 
@@ -114,6 +114,12 @@ hr {
     width: 100%;
 }
 .menu-item.tea {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+.menu-item.cold-drinks {
     display: flex;
     flex-direction: row;
     align-items: center;
