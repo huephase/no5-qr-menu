@@ -118,7 +118,7 @@ function getImageFilename(title) {
     'White Chocolate Saffron': 'white_chocolate_saffron.jpg',
     'Tiramisu': 'tiramisu.jpg',
     'Vanilla Bun': 'vanilla_bun.jpg',
-    'Greek Yogurt Bowl': 'greek_yogurt_bowl.jpg'
+    'Yogurt Bowl': 'yogurt_bowl.jpg'
   };
 
   if (imageMap[title]) {
